@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ImgEase Web</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h2>ImgEase: Image Resizer & Converter</h2>
+
+  <form action="/" method="post" enctype="multipart/form-data">
+
+    <!-- Custom Upload Button -->
+    <label for="file-upload" class="custom-file-upload">📁 Upload Image</label>
+    <input id="file-upload" type="file" name="image" accept="image/*" onchange="previewImage(event)" required style="display: none;">
+    <small id="file-name"></small>
+
+    <!-- Image Preview -->
+    <img id="preview" src="#" alt="Image Preview" style="display: none; max-width: 100%; margin-top: 10px;">
+
+    <!-- Resize Fields -->
+    <label>Resize to:</label><br>
+    Width: <input type="number" name="width" value="800" required>
+    Height: <input type="number" name="height" value="800" required><br><br>
+
+    <!-- Unit -->
+    <label>Unit:</label>
+    <select name="unit">
+      <option value="px">Pixels</option>
+      <option value="in">Inches</option>
+      <option value="cm">Centimeters</option>
+    </select><br><br>
+
+    <!-- Format -->
+    <label>Format:</label>
+    <select name="format">
+      <option value="JPEG">JPEG</option>
+      <option value="PNG">PNG</option>
+      <option value="WEBP">WEBP</option>
+    </select><br><br>
+
+    <!-- Compression Dropdown -->
+    <label>Compression:</label>
+    <select name="quality">
+      <option value="85">Basic (High Quality)</option>
+      <option value="60">Medium</option>
+      <option value="30">High Compression (Smaller File)</option>
+    </select><br><br>
+
+    <!-- Submit -->
+    <button type="submit">Process Image</button>
+  </form>
+
+  <!-- Download Link -->
+  {% if download_link %}
+    <h3>✅ Done! <a href="{{ url_for('download', filename=download_link) }}">Download Image</a></h3>
+  {% endif %}
+
+  <!-- External JS -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ImgEase. All rights reserved.</p>
+  </footer>
+</body>
+</html>
