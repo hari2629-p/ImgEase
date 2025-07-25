@@ -8,12 +8,13 @@
 <body>
   <h2>ImgEase: Image Resizer & Converter</h2>
 
-  <form action="/" method="post" enctype="multipart/form-data">
+  <form action="/" method="post" enctype="multipart/form-data" onsubmit="return showLoader();">
 
     <!-- Custom Upload Button -->
     <label for="file-upload" class="custom-file-upload">📁 Upload Image</label>
-    <input id="file-upload" type="file" name="image" accept="image/*" onchange="previewImage(event)" required style="display: none;">
+    <input id="file-upload" type="file" name="image" accept="image/*" required style="display: none;">
     <small id="file-name"></small>
+    <p id="original-size" style="display: none;"></p>
 
     <!-- Image Preview -->
     <img id="preview" src="#" alt="Image Preview" style="display: none; max-width: 100%; margin-top: 10px;">
@@ -48,7 +49,10 @@
     </select><br><br>
 
     <!-- Submit -->
-    <button type="submit">Process Image</button>
+    <button type="submit" id="submit-btn">Process Image</button>
+    <div id="loader" class="loader" style="display:none; margin-top: 15px;">
+      <p>⏳ Processing your image, please wait...</p>
+    </div>
   </form>
 
   <!-- Download Link -->
@@ -56,7 +60,7 @@
     <h3>✅ Done! <a href="{{ url_for('download', filename=download_link) }}">Download Image</a></h3>
   {% endif %}
 
-  <!-- External JS -->
+  <!-- JS -->
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
   <!-- Footer -->

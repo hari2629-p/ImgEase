@@ -1,4 +1,4 @@
-/* Base reset */
+/* ========== RESET & BASE ========== */
 * {
   margin: 0;
   padding: 0;
@@ -7,37 +7,42 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5f7fa;
-  color: #333;
-  padding: 40px;
+  background: #f0f4f8;
+  color: #2c3e50;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
 }
 
+/* ========== HEADER ========== */
 h2 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 30px;
   color: #2c3e50;
-  margin-bottom: 25px;
 }
 
+/* ========== FORM CONTAINER ========== */
 form {
   background: #ffffff;
-  padding: 30px 40px;
+  padding: 30px;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 500px;
 }
 
-/* Labels */
+/* ========== LABELS ========== */
 label {
   display: block;
   margin-bottom: 6px;
   font-weight: 600;
+  color: #34495e;
 }
 
-/* Custom File Upload Button */
+/* ========== CUSTOM FILE UPLOAD ========== */
 .custom-file-upload {
   display: inline-block;
   padding: 12px 20px;
@@ -49,14 +54,26 @@ label {
   font-weight: 500;
   text-align: center;
   transition: background-color 0.3s;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .custom-file-upload:hover {
   background-color: #2980b9;
 }
 
-/* Inputs and dropdowns */
+/* File input (hidden) */
+input[type="file"] {
+  display: none;
+}
+
+/* File name display */
+#file-name {
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* ========== INPUTS & SELECTS ========== */
 input[type="number"],
 select {
   width: 100%;
@@ -64,6 +81,7 @@ select {
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  font-size: 15px;
   transition: border-color 0.3s;
 }
 
@@ -73,14 +91,16 @@ select:focus {
   outline: none;
 }
 
-/* File name display */
-#file-name {
-  margin-bottom: 20px;
-  color: #555;
-  font-size: 14px;
+/* ========== PREVIEW IMAGE ========== */
+#preview {
+  display: block;
+  max-width: 100%;
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Button */
+/* ========== BUTTONS ========== */
 button {
   background-color: #3498db;
   color: white;
@@ -97,16 +117,39 @@ button:hover {
   background-color: #2980b9;
 }
 
-/* Image preview */
-#preview {
-  display: block;
-  max-width: 100%;
-  margin-top: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+button:disabled {
+  background-color: #7aaed6;
+  cursor: not-allowed;
 }
 
-/* Download link section */
+/* ========== PROCESSING LOADER ========== */
+#loader {
+  margin-top: 20px;
+  text-align: center;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#loader::after {
+  content: "";
+  display: inline-block;
+  margin-left: 10px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #3498db;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========== DOWNLOAD SECTION ========== */
 h3 {
   margin-top: 30px;
   font-weight: 500;
@@ -121,4 +164,17 @@ h3 a {
 
 h3 a:hover {
   color: #2980b9;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #888;
+  text-align: center;
+}
+
+footer a {
+  color: #3498db;
+  text-decoration: none;
 }
