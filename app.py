@@ -38,7 +38,10 @@ def index():
 
                 img = Image.open(file)
                 img = img.convert("RGB")  # Convert all formats to RGB
-                img.thumbnail((width, height))
+
+                # Resize image to exact size (no aspect ratio preservation)
+                img = img.resize((width, height))
+
                 img.save(filepath, format=format.upper(), quality=quality)
 
                 return render_template("index.html", download_link=filename)
@@ -46,7 +49,6 @@ def index():
             print("❌ Error:", e)
             return render_template("index.html", download_link=None)
 
-    # GET request
     return render_template("index.html", download_link=None)
 
 @app.route("/download/<filename>")
