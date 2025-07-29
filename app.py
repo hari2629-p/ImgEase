@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_from_directory, jsonify, flash
 from PIL import Image, ImageFilter, ImageEnhance
+from werkzeug.utils import secure_filename  
 import os
 import uuid
 import mimetypes
