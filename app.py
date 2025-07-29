@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, send_from_directory, jsonify, flash
-from PIL import Image, ImageFilter, ImageEnhance
-from werkzeug.utils import secure_filename  
+from flask import Flask, render_template, request, send_from_directory, jsonify, flash # type: ignore
+from PIL import Image, ImageFilter, ImageEnhance # type: ignore
+from werkzeug.utils import secure_filename   # type: ignore
 import os
 import uuid
 import mimetypes
