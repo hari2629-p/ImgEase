@@ -32,7 +32,33 @@
 
 ## 🔧 How to Run Locally
 
-1. **Clone this repo**  
+1. **Clone this repo**
    ```bash
    git clone https://github.com/your-username/imgease.git
    cd imgease
+   ```
+
+2. **Set up a Virtual Environment** (Recommended)
+   - Windows:
+     ```bash
+     python -m venv venv
+     venv\Scripts\activate
+     ```
+   - macOS/Linux:
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+
+3. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the Application**
+   ```bash
+   python app.py
+   ```
+
+5. **Open in Browser**
+   Go to [http://localhost:5000](http://localhost:5000)
